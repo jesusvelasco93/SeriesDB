@@ -7,12 +7,12 @@
 </head>
 <body>
 	<h1>Nueva serie</h1>
-	<form>
+	<form novalidate>
 		<div>
 			<input type="text" id="title" name="title" placeholder="Título de la serie" required>
 		</div>
 		<div>
-				<input type="url" id="cover_url" name="cover_url" placeholder="URL de la imagen de portada" pattern="https?://.+">
+			<input type="url" id="cover_url" name="cover_url" placeholder="URL de la imagen de portada" pattern="https?://.+">
 		</div> 
 		<div>
 			<textarea id="plot" name="plot" placeholder="Argumento de la serie"></textarea>	
