@@ -1,0 +1,17 @@
+// Layout container
+.container{}
+
+// Grid
+.grid-generator(@columns, @i: 1) when (@i <= @columns){
+    .col-@{i} { 
+        width: @i * (100% / @columns); 
+        float: left;
+        display: block;
+    }
+    .grid-generator(@columns, (@i + 1));
+}
+
+//columnas
+.row{
+    .grid-generator(12);
+}
