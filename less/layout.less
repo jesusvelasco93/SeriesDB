@@ -1,5 +1,8 @@
 // Layout container
-.container{}
+.container{
+    width: @desktop-width;
+    margin: auto;
+}
 
 // Grid
 .grid-generator(@columns, @i: 1) when (@i <= @columns){
@@ -13,5 +16,7 @@
 
 //columnas
 .row{
+    .clearfix();
     .grid-generator(12);
+    //div[class*="col-"]:nth-child(odd) { background-color: #999999}
 }

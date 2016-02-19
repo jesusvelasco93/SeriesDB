@@ -1,5 +1,30 @@
-.main.menu{
-    ul{
-        .horizontal-list();
+
+.web.header{
+    background: @pacifica;
+    .brand{
+        font-size: 25px;
+        font-family: @font-family-serif;
+        font-weight: bold;
     }
+    .main.menu{
+        ul{
+            .horizontal-list();
+            text-align: center;
+            margin-left: 4px;
+            li{margin-left: -4px;}
+            a{
+                color:white;
+                display:inline-block;
+                text-decoration: none;
+                background-color: darken(@pacifica, 30%);
+                padding: 5px 10px;
+                transition: background 250ms;
+                &:hover{
+                    color:black;
+                    background: darken(@pacifica, 20%); 
+                }
+            }
+        }
+    }
+    .form.search{margin-top: 4px;}
 }
