@@ -1,6 +1,7 @@
 
 .web.header{
     background: @pacifica;
+    border-bottom: 5px solid darken(@pacifica, 50%);
     .brand{
         font-size: 25px;
         font-family: @font-family-serif;
@@ -24,6 +25,14 @@
                 }
             }
         }
+        .if-is-mobile({
+            display: none;
+        });
     }
-    .form.search{margin-top: 4px;}
+    .form.search{
+        .if-is-mobile({
+            display: none;
+        });
+        margin-top: 4px;
+    }
 }

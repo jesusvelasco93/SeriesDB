@@ -1,0 +1,25 @@
+.media.list {
+    .media.item {
+        height: 340px;
+        overflow: hidden;
+        .cover {overflow: hidden;}
+        transition: background 500ms;
+        &:hover {
+            background: @pacifica;
+            img {
+                transform: scale(1.2);
+            }
+        }
+        img{
+            margin-top: 25%;
+            transition: transform 250ms;
+        }
+        .overview{
+            height: 205px;
+            overflow: hidden;
+        }
+        .if-is-mobile({
+            height: auto;
+        });
+    }
+}
