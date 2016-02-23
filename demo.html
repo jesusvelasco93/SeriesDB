@@ -10,21 +10,20 @@
     <button id="addListenerButton">Add listener</button>
     <button id="removeListenerButton">Remove listener</button>
     <script>
-        function updateDate() {
+        function updateDate(event) {
+            console.log("updateDate", arguments);
             document.getElementById('demo').innerHTML=new Date()
         }
 
-        function addListener() {
+        document.getElementById('addListenerButton').addEventListener('click', function(){
+            console.log("addListenerButton", arguments);
             document.getElementById('updateDateButton').addEventListener('click',updateDate);
-        }
+        });
 
-        function removeListener() {
+        document.getElementById('removeListenerButton').addEventListener('click', function(){
+            console.log("removeListenerButton", arguments);
             document.getElementById('updateDateButton').removeEventListener('click',updateDate);
-        }
-
-        document.getElementById('removeListenerButton').addEventListener('click', removeListener);
-
-        document.getElementById('addListenerButton').addEventListener('click', addListener);
+        });
     </script>
 </body>
 </html>
