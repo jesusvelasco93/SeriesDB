@@ -6,11 +6,18 @@
 </head>
 <body>
     <div id="demo">Hello World</div>
-    <button id="updateDateButton">Update date</button>
-    <button id="addListenerButton">Add listener</button>
+    <button id="saveButton">Save</button>
+    <<button id="addListenerButton">Add listener</button>
     <button id="removeListenerButton">Remove listener</button>
     <script>
-        function updateDate(event) {
+
+        document.getElementById('demo').contentEditable=true; //permite al usuario escribir
+
+        document.getElementById('save').addEventListener('click', function(evt){
+            console.log("Contenido", document.getElementById('demo').innerHTML);
+
+        });
+        /*function updateDate(event) {
             console.log("updateDate", arguments);
             document.getElementById('demo').innerHTML=new Date()
         }
@@ -23,7 +30,7 @@
         document.getElementById('removeListenerButton').addEventListener('click', function(){
             console.log("removeListenerButton", arguments);
             document.getElementById('updateDateButton').removeEventListener('click',updateDate);
-        });
+        });*/
     </script>
 </body>
 </html>
