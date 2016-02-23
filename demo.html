@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
+
 <body>
-    <div id="demo">Hello World</div>
-    <button id="saveButton">Save</button>
-    <<button id="addListenerButton">Add listener</button>
-    <button id="removeListenerButton">Remove listener</button>
+    <div id="container" style="background: gold; padding:20px;">
+        <div id="content" style="background: coral; padding 20px;">This is the content</div>
+    </div>
+
     <script>
 
-        document.getElementById('demo').contentEditable=true; //permite al usuario escribir
+    //Final de funcion a True para darle la vuelta a los divs que afecta
+    document.getElementById('container').addEventListener('click', function(event){
+        console.log("CONTAINER CLICKED");
+    } , true);
 
-        document.getElementById('save').addEventListener('click', function(evt){
-            console.log("Contenido", document.getElementById('demo').innerHTML);
+    document.getElementById('content').addEventListener('click', function(event){
+        //event.stopPropagation();  //PARAR LA PROPAGACION
+        console.log("content clicked");
+    } , true);
 
-        });
-        /*function updateDate(event) {
-            console.log("updateDate", arguments);
-            document.getElementById('demo').innerHTML=new Date()
-        }
+    document.body.addEventListener('click', function(event){
+        console.log("body clicked");
+    } , true);
 
-        document.getElementById('addListenerButton').addEventListener('click', function(){
-            console.log("addListenerButton", arguments);
-            document.getElementById('updateDateButton').addEventListener('click',updateDate);
-        });
-
-        document.getElementById('removeListenerButton').addEventListener('click', function(){
-            console.log("removeListenerButton", arguments);
-            document.getElementById('updateDateButton').removeEventListener('click',updateDate);
-        });*/
     </script>
 </body>
+
 </html>
