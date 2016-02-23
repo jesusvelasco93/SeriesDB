@@ -7,26 +7,33 @@
 </head>
 
 <body>
-    <div id="container" style="background: gold; padding:20px;">
-        <div id="content" style="background: coral; padding 20px;">This is the content</div>
-    </div>
-
+    <button id="changeBackgroundColor">Cambiar color de fondo </button>
     <script>
+    document.body.style.transition = 'background-color 250ms';
 
-    //Final de funcion a True para darle la vuelta a los divs que afecta
-    document.getElementById('container').addEventListener('click', function(event){
-        console.log("CONTAINER CLICKED");
-    } , true);
+    var timeoutID = null;
 
-    document.getElementById('content').addEventListener('click', function(event){
-        //event.stopPropagation();  //PARAR LA PROPAGACION
-        console.log("content clicked");
-    } , true);
+    document.getElementById('changeBackgroundColor').addEventListener('click', function(event) {
+        console.log("1) Hago click en el botón");
 
-    document.body.addEventListener('click', function(event){
-        console.log("body clicked");
-    } , true);
 
+        if (timeoutID != null) {
+            clearTimeout(timeoutID); //cancela el timeout anterior
+        }
+
+        timeoutID = setTimeout(function() {
+            console.log("2) Ha terminado el timeout y cambio el color");
+            var currentColor = document.body.style.backgroundColor;
+            if (currentColor == 'coral') {
+                document.body.style.backgroundColor = 'white';
+            } else {
+                document.body.style.backgroundColor = 'coral';
+            }
+            timeoutID = null;
+        }, 2000);
+        console.log("3) Ya he puesto el timeout");
+
+    });
     </script>
 </body>
 
