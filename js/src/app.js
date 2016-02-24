@@ -40,7 +40,7 @@ $(document).ready(function() { //Cuando la pagina esta cargada por completo
         //Validacion de las categorias
 
         var selectedCategories = $('input[name="category"]:checked');
-        if(selectedCategories.lenght == 0){
+        if(selectedCategories.length == 0){
             alert("Seleciona almenos una categoria");
             return false;
         }
@@ -57,7 +57,9 @@ $(document).ready(function() { //Cuando la pagina esta cargada por completo
 
 
         //alert("Enviando formulario");
-        return true;
+
+        
+        return false;
     });
 
 });
