@@ -14,7 +14,7 @@
     document.getElementById('getDataButton').addEventListener('click', function() {
         console.log("Configuro XMLHttpRequest");
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "/index.html", true);
+        xhr.open("GET", "index.html", true);
         xhr.onreadystatechange = function() {
             console.log("onreadystatechange", arguments);
             document.getElementById('content').innerHTML = this.responseText;

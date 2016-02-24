@@ -6,3 +6,6 @@ zumbs.db
 
 # CSS
 style.css
+
+# Bower
+bower_components/
