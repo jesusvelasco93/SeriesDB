@@ -23,11 +23,11 @@ $(document).ready(function() { //Cuando la pagina esta cargada por completo
         }
 
         //Validacion del argumento
-        var plot = $.trim($("#plot").val());
-        if( plot == ""){
-            alert("El argumento no puede ser vacio");
-            return false;
-        }
+        // var plot = $.trim($("#plot").val());
+        // if( plot == ""){
+        //     alert("El argumento no puede ser vacio");
+        //     return false;
+        // }
 
 
         //Validacion de la fecha
@@ -58,7 +58,22 @@ $(document).ready(function() { //Cuando la pagina esta cargada por completo
 
         //alert("Enviando formulario");
 
-        
+        $.ajax({
+            url:"/api/series/",
+            data: JSON.stringify({
+                title: title,
+                url: url
+            }),
+            contentType: 'application/json',
+            method: 'post',
+            success: function(){
+                alert("guardado con exito");
+            },
+            error: function(){
+                alert("se ha producido un error");
+            }
+        });
+
         return false;
     });
 
