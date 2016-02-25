@@ -11,7 +11,7 @@ style.css
 bower_components/
 
 # Python
-*.py
+*.py*
 
 # DB
-/db
+db/
