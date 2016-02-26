@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag & Drop</title>
+    <style>
+        .drag{
+            width: 100px;
+            height: 100px;
+            background: gold;
+            margin-right: 10px;
+            float: left;
+            text-align: center;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        #drop {
+            width: 100%;
+            height: 200px;
+            background: black;
+            color:gold;
+            position: fixed;
+            bottom: 0px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: background 250ms;
+        }
+        #drop.ok{ background: lightgreen; }
+        #drop.error{ background: tomato; }
+
+    </style>
+</head>
+<body>
+    <div class="drag" id="drag" draggable="true" data-movie-id="A">A</div>
+    <div class="drag" id="drag" draggable="true" data-movie-id="B">B</div>
+    <div class="drag" id="drag" draggable="true" data-movie-id="C">C</div>
+    <div class="drag" id="drag" draggable="true" data-movie-id="D">D</div>
+    <div class="drag" id="drag" draggable="true" data-movie-id="E">E</div>
+    <div class="drag" id="drag" draggable="true" data-movie-id="F">F</div>
+    <div class="drag" id="drag" draggable="true" data-movie-id="G">G</div>
+    <div id="drop"></div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script>
+
+var draggedMovieId = null;
+
+    $(".drag").on("dragstart", function(evt){
+        console.log("DRAG START", evt);
+        //Ponemos el ide de la pelicula seleccionada
+        draggedMovieId = $(this).data("movieId")
+        evt.originalEvent.dataTransfer.setData("movieId", draggedMovieId);
+
+    }).on("dragend", function(evt){
+        console.log("DRAG END", evt);
+        draggedMovieId = null;
+    });
+
+    $("#drop").on("dragover", function(evt){
+        evt.preventDefault();
+        console.log("DRAG OVER", evt, draggedMovieId);
+        if(draggedMovieId != 'B'){
+            $(this).addClass("ok");
+        }
+        else{
+            $(this).addClass("error");
+        }
+
+    // }).on("dragenter", function(evt){
+    //     evt.preventDefault();
+    //     console.log("DRAG OVER", evt, draggedMovieId);
+    //     $(this).addClass("ok");
+
+    }).on("dragleave", function(evt){
+        evt.preventDefault();
+        console.log("DRAG LEAVE", evt);
+        $(this).removeClass("ok error");
+
+    }).on("drop", function(evt){
+
+        evt.preventDefault();
+        console.log("DROPPED", evt);
+
+        var movieId = evt.originalEvent.dataTransfer.getData("movieId");
+        if (movieId != 'B'){
+            var text = $(this).text();
+            text += movieId;
+            $(this).text(text);
+        }
+
+        $(this).removeClass("ok error");
+    });
+
+
+    </script>
+</body>
+</html>
